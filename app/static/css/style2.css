@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.expandable{
+    width: 90vw;
+    margin: 10px auto;
+}
+.expandable--open .expandable--content{
+    display: block;
+}
+.expandable--title{
+    font-size: 20px;
+    background-color: azure;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+}
+.expandable--content{
+    padding: 15px;
+    border-bottom: solid 5px black;
+    border-left: solid 5px black;
+    border-right: solid 5px black;
+    border-radius: 0 0 10px 10px;
+    display: none;
+    
+}

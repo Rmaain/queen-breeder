@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main{
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
