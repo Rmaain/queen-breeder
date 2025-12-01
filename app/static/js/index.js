@@ -5,5 +5,4 @@ document.body.addEventListener("click", (env) => {
         return
     }
     expandable.classList.toggle('expandable--open')
-
 })

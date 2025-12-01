@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="expandable">
+        <div class="expandable--title">
+            <h2>eggs number, graphic</h2>
+            <span>t</span>
+        </div>
+
+        <div class="expandable--content">
+            <div class="test">
+                <img src="data:image/png;base64,{{ img_data }}">
+            </div>
+            
+        </div>
+    </div>
+{% endblock content %}
+
+
