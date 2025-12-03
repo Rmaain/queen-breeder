@@ -6,6 +6,9 @@
     <div>
         {{ form.username.label() }}
         {{ form.username() }}
+        {% for error in form.username.errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
     </div>
     <div>
         {{ form.email.label() }}

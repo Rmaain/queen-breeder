@@ -1,33 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="form-content">
-    <form action="/analysis" method="POST">
-        <label>
-            How calm and manageable is the colony when inspected?
-            (1 = Aggressive, 5 = Very gentle)
-        <div>
-            {% for i in range(1, 6) %}
-                {{ i }}
-                <input type="radio" name="Temperament" value="{{ i }}">
-            </label>
-            
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.hive_number.label }}
+        {{ form.hive_number }}
+
+        {{ form.temperament.label }}
+        {{ form.temperament }}
+        <div id="hive">
+            {% for i in form.frames %}
+                <div class="frame">
+                    <label>Quadro {{ loop.index }}</label>
+                    {{ i.image }}
+                </div>
             {% endfor %}
         </div>
-        </label>
-        <label>
-            Take a photo of the brood combs, in good lighting and without bees on them.<br>
-            <input type="file" name="img" accept="image/*">
-        </label>
-        <label>
-            Honey Production
-            <input type="text" name="HoneyProduction">
-        </label>
-        <label>
-            queen's age
-            <input type="text" name="queen's age">
-        </label>
-        
-        <button type="submit">ADD</button>
+        <button type="button" id="add_frame">+</button>
+
+        {{form.submit()}}
     </form>
 </div>
 

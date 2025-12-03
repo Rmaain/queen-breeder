@@ -14,9 +14,18 @@
             <img src="{{ url_for('static', filename='assets/img/Untitled.jpg') }}">
         </div>
         <div id="nav-bar">
-            <a href="{{ url_for('listHives') }}"><span>My Hives</span></a>
-            <span>About</span>
-            <a href="{{ url_for('home') }}"><span>My account</span></a>
+            {% if current_user.is_authenticated %}
+            <a href="{{ url_for('logout') }}"><span>logout</span></a>
+            <a href="{{ url_for('home') }}"><span>Colmeias</span></a>
+            <a href="{{ url_for('account') }}"><span>Conta</span></a>
+            {% else %}
+            
+
+            <span>Sobre</span>
+            <a href="{{ url_for('Login') }}"><span>Entrar</span></a>
+            <a href="{{ url_for('Registration') }}"><span>Registrar</span></a>
+
+            {% endif %}
         </div>
     </header>
     {% block content %}

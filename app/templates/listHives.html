@@ -1,8 +1,18 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <!--info hives + option for edit and delete
-    {% for hive in hives %}
 
-    {% endfor %}-->
+<!--
+    info hives + option for edit and delete
+    <div class="listHives--container">
+        {% for hive in current_user.hives %}
+            <div class="listHives--hive-block">
+                {{  hive.number }}
+                {{  hive.brood_cell }}
+                {{ hive.honey_combs }}
+            </div>
+        {% endfor %}
+    </div>
+-->
+    
     <a href="{{ url_for('addHives') }}"><button>ADD HIVES</button></a>
 {% endblock content %}

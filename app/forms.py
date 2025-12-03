@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Length, ValidationError
-from app import User
+from wtforms import FieldList, FormField, StringField, SubmitField, PasswordField, SubmitField, IntegerField, SelectField, FileField
+from wtforms.validators import DataRequired, Length, ValidationError, NumberRange
+from app.models import User
 
 # add password type again
 # add Email verification
@@ -20,3 +20,17 @@ class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Submit')
+class FrameForm(FlaskForm):
+    image=FileField('Quadro')
+class AddHivesForm(FlaskForm):
+    hive_number = IntegerField('Numero da colmeia', validators=[DataRequired()])
+    temperament = SelectField('Avalie o temperamento', choices=[str(i) for i in range(1, 6)], validators=[DataRequired()])
+    frames = FieldList(FormField(FrameForm), min_entries=2)
+    submit = SubmitField('Submit')
+    # image
+        # frame number in the image
+
+    # maybe 
+    # lineage
+    # date
+    # estimated age of the queen
