@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from app.forms import LoginForm, RegistrationForm,  AddHivesForm
 from app import db, bcrypt
 from app.models import User, Hive
@@ -7,6 +7,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 import cv2
 import numpy as np
 import base64
+from PIL import Image
 
 
 
@@ -64,11 +65,10 @@ def analysis():
 
 @app.route("/addHives", methods=['GET', 'POST'])
 def addHives():
+    #img = Image.open(file.stream)
     form = AddHivesForm()
-    previews = []
     if form.validate_on_submit():
-        for i, x in enumerate(form.frames.entries):
-            image = x.form.image.data
+        file = request.files.get('frames-${index+1}-image')
     return render_template("addHives.html", form=form)
 
 @app.route("/listHives")

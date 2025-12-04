@@ -13,8 +13,14 @@ add_btn = document.getElementById('add_frame')
 
 add_btn.addEventListener('click', () => {
     const index = hive_container.children.length
+    fetch("/addHives", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(({ framesN:  hive_container.children.length+1}))
+    })
     const NewFrame = document.createElement('div')
     NewFrame.classList.add('frame')
+
     NewFrame.innerHTML = ` 
     <label>Quadro ${ index+1 }</label>
     <input type="file" name="frames-${index+1}-image" accept="image/*" ></input>

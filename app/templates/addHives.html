@@ -9,12 +9,10 @@
         {{ form.temperament.label }}
         {{ form.temperament }}
         <div id="hive">
-            {% for i in form.frames %}
                 <div class="frame">
-                    <label>Quadro {{ loop.index }}</label>
-                    {{ i.image }}
+                    <label>Quadro 1</label>
+                    <input type="file" name=frames-1-image accept="image/*" ></input>
                 </div>
-            {% endfor %}
         </div>
         <button type="button" id="add_frame">+</button>
 

@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
         return f'User({self.username}, {self.email}, {self.password}, {self.image_file})'
 class Hive(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     frames = db.relationship('HiveFrame', backref='hive', lazy=True)
 
@@ -28,7 +29,7 @@ class HiveFrame(db.Model):
             #Larvae
             #Pupae
         # Pollen
-    honey_combs = db.Column(db.Integer)
+    # honey_combs = db.Column(db.Integer)
     # Honeycombs_full
     # Honeycombs_empty
 

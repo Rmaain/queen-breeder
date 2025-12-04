@@ -7,10 +7,10 @@ from app.models import User
 # add Email verification
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+    username = StringField('Nome', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired()]) #add email validators
-    password = PasswordField('Password', validators=[DataRequired()]) #add max length
-    submit = SubmitField('Submit')
+    password = PasswordField('Senha', validators=[DataRequired()]) #add max length
+    submit = SubmitField('Entrar')
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user:
@@ -18,8 +18,8 @@ class RegistrationForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    password = PasswordField('Senha', validators=[DataRequired()])
+    submit = SubmitField('Entrar')
 class FrameForm(FlaskForm):
     image=FileField('Quadro')
 class AddHivesForm(FlaskForm):
